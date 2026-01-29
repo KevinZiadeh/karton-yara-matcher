@@ -14,9 +14,11 @@ class YaraMatcher(Karton):
     """
     Perform YARA on sample and add corresponding tags.
 
+    For a given sample, run **YARA** on it and add **tags** of the form `yara:<RULE_NAME>`.
+
     **Consumes:**
     ```
-    {"type": "sample", "stage": "recognized"}
+    {"type": "sample", "stage": "recognized", "kind": { "$nin": ["dump", "misc"] }}
     ```
 
     **Produces:**
@@ -33,7 +35,7 @@ class YaraMatcher(Karton):
 
     identity = "karton.yara-matcher"
     filters: ClassVar = [
-        {"type": "sample", "stage": "recognized"},
+        {"type": "sample", "stage": "recognized", "kind": { "$nin": ["dump", "misc"] }},
     ]
     version = __version__
     RULES_PATH = "/app/rules"

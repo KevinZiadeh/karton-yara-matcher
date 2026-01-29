@@ -37,7 +37,7 @@ For a given sample, run **YARA** on it and add **tags** of the form `yara:<RULE_
 
 **Consumes:**
 ```json
-{"type": "sample", "stage": "recognized"}
+{"type": "sample", "stage": "recognized", "kind": { "$nin": ["dump", "misc"] }}
 ```
 
 **Produces:**
