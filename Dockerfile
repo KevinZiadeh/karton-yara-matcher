@@ -45,8 +45,8 @@ RUN sed -i \
 # Create rules directory if it doesn't already exist (for custom rules) 
 RUN mkdir -p rules 
 
-# Download Default YARA rules
-RUN git clone https://github.com/reversinglabs/reversinglabs-yara-rules.git rules/reversinglabs
+# [OPTIONAL] Download Default YARA rules
+# RUN git clone https://github.com/reversinglabs/reversinglabs-yara-rules.git rules/reversinglabs
 
 # ---------- Final runtime stage ----------
 FROM base AS runtime
